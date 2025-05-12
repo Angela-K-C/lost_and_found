@@ -1,0 +1,152 @@
+:root {
+  --bg-page: #ededed;
+  --bg-surface: #ffffff;
+  --bg-panel: #ececec;
+
+  --color-primary: #8358ff;
+  --color-primary-hover: #6b44d6;
+
+  --color-text: #333333;
+  --color-placeholder: #aaaaaa;
+
+  --color-border: #cccccc;
+  --color-border-focus: var(--color-primary);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-page);
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  background: var(--bg-surface);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-panel {
+  flex: 1;
+  background: var(--bg-panel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.image-panel img {
+  width: 100%;
+  height: 100vh;
+  display: block;
+}
+
+.logo-image {
+  display: block;
+  width: 60px;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+.form-panel {
+  flex: 1;
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-panel fieldset {
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-panel legend {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text);
+  text-align: center;
+}
+
+.form-panel label {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  color: var(--color-text);
+}
+
+.labels {
+  margin-top: 6px;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
+.labels:focus {
+  outline: none;
+  border-color: var(--color-border-focus);
+}
+
+.icon-input {
+  background-repeat: no-repeat;
+  background-position: 12px center;
+  padding-left: 44px;
+}
+
+#username {
+  background-image: url("icons/account_circle.svg");
+}
+#email {
+  background-image: url("icons/mail.svg");
+}
+#password,
+#confirm-password {
+  background-image: url("icons/lock.svg");
+}
+
+.icon-input::placeholder {
+  color: var(--color-placeholder);
+  opacity: 1;
+  font-style: italic;
+}
+
+.form-panel .submit {
+  margin-top: 5px;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--color-primary);
+  color: var(--bg-surface);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.form-panel .submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image-panel {
+    display: none;
+  }
+}
