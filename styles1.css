@@ -1,0 +1,196 @@
+
+
+
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 12px;
+}
+
+nav li {
+    list-style-type: none;
+}
+
+.nav-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-left: 12px;
+}
+
+.nav-left > img {
+    width: 40px;
+    height: 40px;
+}
+
+.website-name {
+    color:black;
+    font-size: 18px;
+   
+    font-style: italic;
+    
+}
+
+.main-links {
+    display: flex;
+    gap: 36px;
+    
+     font-style: italic;
+    font-size: 16px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.main-links li {
+    padding: 10px 15px;
+    cursor: pointer;
+    color:black;
+}
+
+.main-links li:hover {
+    color:black ;
+    background-color: rgba(46, 92, 184, 0.08);
+}
+
+.profile {
+    width: 35px;
+    height: 35px;
+}
+body {
+    background-color:white;
+    
+}
+h1{
+    padding-top: 5px;
+    padding-left: 20px;
+    font-style: italic;
+    color:rgb(92, 60,138);
+     background-color:white;
+}
+.zero{
+    text-align: left;
+    padding-top: 75px;
+
+}
+.container{
+    display: flex;
+    gap: 250px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 5px;
+   
+
+}
+.image-container {
+    text-align:center;
+    padding: 30px;
+
+}
+
+
+.icon-with-text {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    cursor: pointer;
+    padding: 10px;
+ 
+    
+}
+.icon-text {
+    align-items: left;
+    font-style: italic;
+    padding-left: 10px;
+    font-size: 14px;
+    color: black;
+}
+.one{
+    font-size: 14px;
+    font-weight: 600;
+}
+.two{
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.form-container {
+
+   text-align:left;
+    flex: 1;
+    font-size: 14px;
+    padding: 30px;
+    width:20%;
+    margin-left: 40px;
+    
+}
+input[type="text"],input[type="password"],input[type="email"]{
+  
+      color: black;
+    padding: 5px 5px;
+    width: 50%;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+#uname,#uid {
+    background: url('person_circle-256.png') no-repeat left center;
+    background-size: 20px 20px; 
+    padding-left: 20px; 
+}
+#email{
+    background: url('mail-icon.png') no-repeat left center;
+    background-size: 15px 15px; 
+    padding-left: 20px;  
+    
+}
+#pword{
+    background: url('lock-icon.png') no-repeat left center;
+    background-size: 25px 25px; 
+    padding-left: 20px; 
+    padding-right: 0px; 
+
+}
+
+input[type="submit"]{
+    border: solid;
+    border-radius: 5px ;
+    border-color: rgb(153, 102, 204);
+    padding: 5px;
+    width: 105px;
+    
+    
+}
+#submit-container{
+    text-align:center;
+    margin-right: 20px;
+}
+.yoh{
+    color:rgb(153, 102, 204);
+}
+.yoh:hover{
+    color:black;
+}
+.yah{
+    color:white;
+    background-color: rgb(153, 102, 204);
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+.yah:hover{
+    color:black;
+}
+}
