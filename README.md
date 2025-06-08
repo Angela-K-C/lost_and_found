@@ -4,27 +4,6 @@ A campus-oriented lost and found web application that helps students and staff r
 
 ---
 
-## 🧨 Problem
-
-Every day, students on campus lose belongings like books, bottles, school IDs, and more. Though a Lost and Found office exists, many students don’t know its location. This leads to:
-
-- Unclaimed items piling up  
-- Increased staff workload  
-- Frustration and potential loss for students
-
----
-
-## 💡 Solution
-
-This website provides a centralized, always-available platform where users can:
-
-- Report lost or found items  
-- Browse or search reports  
-- Receive notifications about matching items  
-- Get directions to the Lost and Found office
-
----
-
 ## 👥 Users of the System
 
 ### 1. General Users (Students & Staff)
@@ -37,23 +16,7 @@ This website provides a centralized, always-available platform where users can:
 - Moderate submissions  
 - Manage duplicate or inappropriate reports  
 - Close resolved cases  
-- Notify users about important updates  
-
----
-
-## 🧾 User Stories
-
-As a **student or staff member**, I want to:
-- Create an account with my school credentials  
-- Report and search for items  
-- Get notified when items matching my description are found  
-- Log out securely  
-
-As an **admin**, I want to:
-- Log in using institutional credentials  
-- Upload, moderate, and verify items  
-- Notify users and resolve cases  
-- Securely log out  
+- Notify users about important updates
 
 ---
 
