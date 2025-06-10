@@ -1,6 +1,4 @@
 
-
-
 * {
     margin: 0;
     border: 0;
@@ -12,10 +10,12 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: whitesmoke;
-    padding: 12px;
+    padding: 12px 20px;
 }
 
-nav li {
+nav ul {
+    display: flex;
+    gap: 36px;
     list-style-type: none;
 }
 
@@ -35,7 +35,7 @@ nav li {
 .website-name {
     color:black;
     font-size: 18px;
-   
+   list-style-type: none;
     font-style: italic;
     
 }
@@ -186,11 +186,24 @@ input[type="submit"]{
     color:white;
     background-color: rgb(153, 102, 204);
 }
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
 .yah:hover{
     color:black;
 }
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .form-container,
+    .image-container {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: 200%;
+    }
 }
