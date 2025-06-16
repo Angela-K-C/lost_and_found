@@ -12,6 +12,7 @@
 </head>
 <body>
     <!-- Navbar goes here -->
+    <!-- <?php include '../includes/navbar.php' ?> -->
 
     <div class="upload-container">
         <h1>Posts upload</h1>

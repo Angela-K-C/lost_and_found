@@ -8,23 +8,7 @@
     </head>
 
     <body>
-        <nav>
-        <div class="nav-left">
-            <img src="../assets/images/Ellipse 3.png" alt="Logo">
-            <li class="website-name">LI-FI</li>
-        </div>
-
-        <ul class="main-links">
-           
-            <li class="active">Dashboard</li>
-            <li class="active">Inquiries</li>
-            <li class="active">Notifications</li>
-        </ul>
-
-        <div>
-            <img src="../assets/images/person_circle-256.png" alt="Profile icon" class="profile">
-        </div>
-    </nav>
+        <?php include '../includes/navbar.php' ?>
 
         <h1>Profile Settings</h1>
         

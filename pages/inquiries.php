@@ -5,21 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inquiries - Lost and Found</title>
   <link rel="stylesheet" href="../assets/css/inquiries.css">
-  <script src="https://kit.fontawesome.com/84bdbc0c50.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="image.png" alt="Logo" />
-      <h1>Li-FI</h1>
-    </div>
-    <nav>
-      <a href="#">Dashboard</a>
-      <a href="#">Inquiries</a>
-      <a href="#">Notifications</a>
-    </nav>
-    <img src="image copy.png" alt="User" />
-  </header>
+
+  <!-- Navbar here -->
+  <?php include '../includes/navbar.php' ?>
+
   <div class="title">Inquiries</div>
   <div class="filters">
     <span>	<i class="fa-solid fa-folder" style="color: #5cb85c;"></i> All</span>

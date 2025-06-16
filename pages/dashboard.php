@@ -11,24 +11,8 @@
     />
   </head>
   <body>
-    <header class="navbar">
-      <div class="logo">
-        <img src="../assets/images/Ellipse 3.png" alt="Logo" />LI-FI
-      </div>
-      <nav class="nav-links">
-        <a href="#">Dashboard</a>
-        <a href="/approval.html">Inquiries</a>
-        <a href="#">Notifications</a>
-      </nav>
-      <div class="profile">
-        <a href="/pform.html">
-        <img
-          src="https://images.unsplash.com/photo-1732550216149-41c470c95e53?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="User Profile"
-        />
-      </a>
-      </div>
-    </header>
+    
+    <?php include '../includes/navbar.php' ?>
 
     <section class="search-filter">
       <div class="search-bar">

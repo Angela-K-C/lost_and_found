@@ -7,20 +7,7 @@
   <link rel="stylesheet" href="../assets/css/approval.css" />
 </head>
 <body>
-  <header>
-    <div class="logo-profile">
-      <img src="../assets/images/logo.png" alt="Logo" class="logo" />
-      <span class="logo-text">LI-FI</span>
-    </div>
-    <nav>
-      <a href="#">Dashboard</a>
-      <a href="#">Inquiries</a>
-      <a href="#">Notifications</a>
-    </nav>
-    <div class="logo-profile">
-      <img src="../assets/images/profilepic.png" alt="Profile" class="profile" />
-    </div>
-  </header>
+  <?php include '../includes/navbar.php' ?>
 
   <main>
     <h2>Approval Request</h2>
