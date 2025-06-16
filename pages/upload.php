@@ -22,7 +22,7 @@
                 <!-- File Upload Area -->
                 <div class="upload-area">
                     <label for="profilePic">
-                        <img src="./images/add_photo.png" />
+                        <img src="../assets/images/add_photo.png" />
                         <p>Upload your cover picture here</p>
                         <p><small>File formats: PDF, JPG or PNG</small></p>
                         <small>Max 5MB</small>
