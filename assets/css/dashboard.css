@@ -8,73 +8,47 @@ body {
   font-family: "Segoe UI", sans-serif;
   background-color: #f9f9f9;
   color: #333;
-  padding: 0 2rem;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid #ddd;
-  font-family: "Kaushan Script", cursive;
-  height: 90px;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: "Kaushan Script", cursive;
-  display: flex;
-  align-items: center;
-}
-
-.logo img {
-  height: 40px;
-  width: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-}
-
-.nav-links a {
-  margin: 0 1rem;
-  text-decoration: none;
-  font-style: italic;
-  color: #333;
-}
-
-.profile img {
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  object-fit: cover;
+.dashboard-page {
+  margin: 2rem;
 }
 
 /* Search Filter */
 .search-filter {
-  margin: 1.5rem 0;
+  margin: 2rem 0;
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  align-items: left;
+  width: 100%;
+  flex-direction: column;
 }
 
-.search-filter input,
-.search-filter select {
+.search-filter input {
   padding: 0.6rem 1rem;
   font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #ccc;
-  min-width: 180px;
+  min-width: 400px;
+}
+
+.filters {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .filter-btn {
-  background: #e4e4e4;
-  border: none;
-  border-radius: 6px;
-  padding: 0.6rem 1rem;
   cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.filters select {
+  width: 350px;
+  color: #374151;
+  font-family: "Inter";
+  font-size: 18px;
 }
 
 /* Card Grid */

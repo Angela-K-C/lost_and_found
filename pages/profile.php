@@ -8,6 +8,7 @@
     </head>
 
     <body>
+        
         <?php include '../includes/navbar.php' ?>
 
         <h1>Profile Settings</h1>

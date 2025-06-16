@@ -6,8 +6,10 @@ body {
 }
 
 .title {
-  font-family: cursive;
-  font-size: 28px;
+  font-family: "Kaushan Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 32px;
   margin: 30px;
   color: #5d3b76;
 }
@@ -17,6 +19,8 @@ body {
   display: flex;
   gap: 20px;
   margin: 0 30px 30px 30px;
+  font-family: "Inter";
+  font-size: 16px;
 }
 
 .filters span {

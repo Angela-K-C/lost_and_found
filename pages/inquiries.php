@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inquiries - Lost and Found</title>
   <link rel="stylesheet" href="../assets/css/inquiries.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -13,9 +14,9 @@
 
   <div class="title">Inquiries</div>
   <div class="filters">
-    <span>	<i class="fa-solid fa-folder" style="color: #5cb85c;"></i> All</span>
-    <span>	<i class="fa-solid fa-hourglass-half" style="color: blueviolet;"></i> Pending</span>
-    <span>	<i class="fa-solid fa-folder-open" style="color: #5cb85c;"></i> Resolved</span>
+    <span><img src="../assets/images/folder.png" style="width: 15px;"/> All</span>
+    <span><img src="../assets/images/folder.png" style="width: 15px;"/> Pending</span>
+    <span><img src="../assets/images/folder.png" style="width: 15px;"/> Resolved</span>
   </div>
   <div class="cards">
     <div class="card">
