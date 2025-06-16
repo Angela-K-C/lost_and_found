@@ -15,34 +15,48 @@
         
         <div class="container">
             <div class="image-container">
-                 <section class="one">
-            Profile
-            </section><br>
-            <img src="../assets/images/add-profile-picture-icon-1.png" width="200" height="200"><br>
-        <div class="icon-with-text">
-        <br><br><img src="../assets/images/editing icon.png" width="15" height="15"><br>
-        <span class="icon-text">Edit Profile Picture</span>
-        </div>
-        <input class="yah" type="submit" value="Log Out">
+                <p class="section-title">Profile</p>
+
+                <div class="upload-area">
+                    <label for="profilePic">
+                        <img src="../assets/images/add_photo.png" />
+                        <p>Upload your cover picture here</p>
+                        <p><small>File formats: PDF, JPG or PNG</small></p>
+                        <small>Max 5MB</small>
+
+                        <input type="file" name="profilePic" id="profilePic">
+                    </label>
+                </div>
+
+                <div class="icon-with-text">
+                    <img src="../assets/images/editing icon.png" width="15" height="15">
+                    <span class="icon-text">Edit Profile Picture</span>
+                </div>
+
+                <input class="yah" type="submit" value="Log Out">
         
-        </div>
-        <div class="form-container">
-            <section class="two">
-            Personal Details
-            </section><br>
-        <label for="iud">ID:</label><br>
-        <input class="labels icon-input" type="text" id="uid" name="uid" placeholder="123456" required><br>
-        <br><label for="uname">UserName:</label><br>
-        <input class="labels icon-input" type="text" id="uname" name="uname" placeholder="John Doe" required><br>
-        <br><label for="email">Email:</label><br>
-        <input class="labels icon-input" type="text" id="email" name="email" placeholder="you@example.com" required><br>
-        <br><label for="pword">Password:</label><br>
-        <input class="labels icon-input" type="password" id="pword" name="pword" placeholder="************" required><br><br>
-         <div id="submit-container">
-        <br><br><input class="yoh" type="submit" value="Cancel">
-        <input class="yah" type="submit" value="Save Changes">
-        </div>
-        </div>
+            </div>
+
+            <div class="form-container">
+                <p class="section-title">Personal details</p>
+
+                <label for="iud">ID</label>
+                <input type="text" id="uid" class="lbl" name="uid" placeholder="123456" required>
+
+                <label for="uname">Username</label>
+                <input type="text" id="uname" name="uname" class="lbl" placeholder="John Doe" required>
+
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" class="lbl" placeholder="you@example.com" required>
+
+                <label for="pword">Password</label>
+                <input type="password" id="pword" name="pword" class="lbl" placeholder="************" required>
+            
+                <div id="submit-container">
+                    <input class="yoh" type="submit" value="Cancel">
+                    <input class="yah" type="submit" value="Save Changes">
+                </div>
+            </div>
         </div>
 
     </body>

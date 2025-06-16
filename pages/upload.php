@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Form</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/upload.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,23 +11,23 @@
 </head>
 <body>
     <!-- Navbar goes here -->
-    <!-- <?php include '../includes/navbar.php' ?> -->
+    <?php include '../includes/navbar.php' ?>
 
     <div class="upload-container">
         <h1>Posts upload</h1>
 
-        <form action="" method="post" class="upload-form">
+        <form action="../upload_post.php" method="post" class="upload-form" enctype="multipart/form-data">
 
             <div class="main-panel">
                 <!-- File Upload Area -->
                 <div class="upload-area">
-                    <label for="profilePic">
-                        <img src="../assets/images/add_photo.png" />
+                    <label for="imageUrl">
+                        <img id="preview" src="../assets/images/add_photo.png" />
                         <p>Upload your cover picture here</p>
                         <p><small>File formats: PDF, JPG or PNG</small></p>
                         <small>Max 5MB</small>
 
-                        <input type="file" name="profilePic" id="profilePic">
+                        <input type="file" name="imageUrl" id="imageUrl" accept="image/*" required onchange="previewImage(event)">
                     </label>
                 </div>
 
@@ -49,17 +48,24 @@
 
                     <label for="category">
                         Category:
-                        <input
-                        class="labels"
-                        type="text"
-                        id="category"
-                        name="category"
-                        placeholder="Accessories"
-                        required
-                        />
+                        <select name="category" id="category" class="labels" required>
+                            
+                            <?php 
+                                require '../connection.php';
+
+                                $sql = "SELECT category_id, category_name from categories";
+
+                                $result = $conn->query($sql);
+
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<option value='" . $row['category_id'] . "'>" . $row['category_name'] . "</option>";
+                                }
+                            ?>
+
+                        </select>
                     </label>
 
-                    <label for="name">
+                    <label for="location">
                         Location:
                         <input
                         class="labels"
@@ -92,5 +98,16 @@
             </div>
         </form>
     </div>
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const preview = document.getElementById('preview');
+                preview.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
 </body>
 </html>
