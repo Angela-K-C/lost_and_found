@@ -102,6 +102,17 @@ body {
   color: #dc3545;
 }
 
+.inquiry-link {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: #000;
+}
+
 /* .  fa-folder {
   color: rgb(241, 241, 5);
 } */

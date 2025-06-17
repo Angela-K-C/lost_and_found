@@ -93,7 +93,7 @@
             </div>
 
             <div class="buttons">
-                <button type="button" class="cancel">Cancel</button>
+                <button type="button" class="cancel" onclick="cancel()">Cancel</button>
                 <button type="submit" class="submit">Upload</button>
             </div>
         </form>
@@ -107,6 +107,10 @@
                 preview.src = reader.result;
             }
             reader.readAsDataURL(event.target.files[0]);
+        }
+
+        const cancel = () => {
+            window.location.href = '../pages/dashboard.php';
         }
     </script>
 </body>

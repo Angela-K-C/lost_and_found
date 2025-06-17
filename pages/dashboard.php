@@ -16,10 +16,14 @@
 
     <div class="dashboard-page">
       <section class="search-filter">
-        <div class="search-bar">
-          <img src="../assets/images/filter.png" alt="filter" class="filter-btn">
+        <div class="upper-search-section">
+          <div class="search-bar">
+            <img src="../assets/images/filter.png" alt="filter" class="filter-btn">
 
-          <input type="text" placeholder="Search for items" />
+            <input type="text" placeholder="Search for items" />
+          </div>
+
+          <button class="submit" onclick="redirectToUpload()">Upload an item</button>
         </div>
 
         <div class="filters">
@@ -33,6 +37,7 @@
             <option>Location</option>
           </select>
         </div>
+
         
       </section>
 
@@ -143,5 +148,11 @@
         </div>
       </div>
     </main>
+
+    <script>
+      const redirectToUpload = () => {
+        window.location.href = '../pages/upload.php';
+      }
+    </script>
   </body>
 </html>

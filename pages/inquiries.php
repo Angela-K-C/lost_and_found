@@ -22,7 +22,9 @@
     <div class="card">
       <img src="https://images.pexels.com/photos/32463116/pexels-photo-32463116/free-photo-of-black-power-adapter-on-yellow-background.jpeg" alt="Laptop Charger" />
       <div class="card-body">
-        <h3><i class="fa-solid fa-clipboard" style="color: #007bff;"></i> Laptop Charger</h3>
+         <h3>
+          <a href="../pages/approval.php" class="inquiry-link">Laptop Charger</a>
+        </h3>
         <p><i class="fa-solid fa-tag" style="color: purple;"></i> Electronics</p>
         <p>	<i class="fa-solid fa-location-dot" style="color: red;"></i> STMB 1st floor</p>
         <p><i class="fa-solid fa-clock" style="color: lightblue;"></i> 12/04/2025</p>
@@ -33,7 +35,9 @@
     <div class="card">
       <img src="https://images.pexels.com/photos/32463116/pexels-photo-32463116/free-photo-of-black-power-adapter-on-yellow-background.jpeg" alt="Laptop Charger" />
       <div class="card-body">
-        <h3><i class="fa-solid fa-clipboard" style="color: #007bff;"></i> Laptop Charger</h3>
+        <h3>
+          <a href="../pages/approval.php" class="inquiry-link">Laptop Charger</a>
+        </h3>
         <p><i class="fa-solid fa-tag" style="color: purple;"></i> Electronics</p>
         <p><i class="fa-solid fa-location-dot" style="color: red;"></i> STMB 1st floor</p>
         <p><i class="fa-solid fa-clock" style="color: lightblue;"></i> 12/04/2025</p>
@@ -44,7 +48,9 @@
     <div class="card">
       <img src="https://images.pexels.com/photos/32463116/pexels-photo-32463116/free-photo-of-black-power-adapter-on-yellow-background.jpeg" alt="Laptop Charger" />
       <div class="card-body">
-        <h3><i class="fa-solid fa-clipboard" style="color: #007bff;"></i> Laptop Charger</h3>
+        <h3>
+          <a href="../pages/approval.php" class="inquiry-link">Laptop Charger</a>
+        </h3>
         <p><i class="fa-solid fa-tag" style="color: purple;"></i> Electronics</p>
         <p><i class="fa-solid fa-location-dot" style="color: red;"></i> STMB 1st floor</p>
         <p><i class="fa-solid fa-clock" style="color: lightblue;"></i> 12/04/2025</p>
