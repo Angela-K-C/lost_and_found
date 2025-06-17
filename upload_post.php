@@ -55,15 +55,3 @@
     }
 
 ?>
-
-<!-- 
-item_id
-admin_id
-item_name
-item_description
-category_id
-location
-date_located
-image_url
-status
--->
