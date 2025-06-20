@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2025 at 08:45 AM
+-- Generation Time: Jun 20, 2025 at 09:55 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `lost_and_found`
 --
+CREATE DATABASE IF NOT EXISTS `lost_and_found` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `lost_and_found`;
 
 -- --------------------------------------------------------
 
@@ -27,9 +29,10 @@ SET time_zone = "+00:00";
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
+CREATE TABLE IF NOT EXISTS `categories` (
   `category_id` varchar(50) NOT NULL,
-  `category_name` varchar(100) DEFAULT NULL
+  `category_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -46,11 +49,13 @@ INSERT INTO `categories` (`category_id`, `category_name`) VALUES
 -- Table structure for table `claims`
 --
 
-CREATE TABLE `claims` (
+CREATE TABLE IF NOT EXISTS `claims` (
   `claim_id` varchar(50) NOT NULL,
   `inq_id` varchar(50) DEFAULT NULL,
   `claim_date` datetime DEFAULT NULL,
-  `dispatch_status` enum('pending','claimed') DEFAULT NULL
+  `dispatch_status` enum('pending','claimed') DEFAULT NULL,
+  PRIMARY KEY (`claim_id`),
+  KEY `inq_id` (`inq_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,13 +64,16 @@ CREATE TABLE `claims` (
 -- Table structure for table `inquiries`
 --
 
-CREATE TABLE `inquiries` (
+CREATE TABLE IF NOT EXISTS `inquiries` (
   `inq_id` varchar(50) NOT NULL,
   `user_id` varchar(50) DEFAULT NULL,
   `item_id` varchar(50) DEFAULT NULL,
   `inq_date` datetime DEFAULT NULL,
   `inq_description` text DEFAULT NULL,
-  `status` enum('pending','approved','rejected') DEFAULT NULL
+  `status` enum('pending','approved','rejected') DEFAULT NULL,
+  PRIMARY KEY (`inq_id`),
+  KEY `item_id` (`item_id`),
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -74,7 +82,7 @@ CREATE TABLE `inquiries` (
 -- Table structure for table `items`
 --
 
-CREATE TABLE `items` (
+CREATE TABLE IF NOT EXISTS `items` (
   `item_id` varchar(50) NOT NULL,
   `admin_id` varchar(50) DEFAULT NULL,
   `item_name` varchar(255) DEFAULT NULL,
@@ -83,7 +91,10 @@ CREATE TABLE `items` (
   `location` varchar(100) DEFAULT NULL,
   `date_located` date DEFAULT NULL,
   `image_url` varchar(255) DEFAULT NULL,
-  `status` enum('pending','claimed') DEFAULT NULL
+  `status` enum('pending','claimed') DEFAULT NULL,
+  PRIMARY KEY (`item_id`),
+  KEY `category_id` (`category_id`),
+  KEY `admin_id` (`admin_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -91,7 +102,8 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`item_id`, `admin_id`, `item_name`, `item_description`, `category_id`, `location`, `date_located`, `image_url`, `status`) VALUES
-('685108002a568', '1', 'Water Bottle', 'Blue waterbottle with name \"Camilla\"', '2', 'Masinga Lab', '2025-06-17', 'uploads/1750140928_bottle.jpg', 'pending');
+('685108002a568', '1', 'Water Bottle', 'Blue waterbottle with name \"Camilla\"', '2', 'Masinga Lab', '2025-06-17', 'uploads/1750140928_bottle.jpg', 'pending'),
+('685113c6dfae2', '1', 'Pen', 'Blue Bic with no cap', '1', 'STC ', '2025-06-17', 'uploads/1750143942_pen.png', 'pending');
 
 -- --------------------------------------------------------
 
@@ -99,9 +111,10 @@ INSERT INTO `items` (`item_id`, `admin_id`, `item_name`, `item_description`, `ca
 -- Table structure for table `roles`
 --
 
-CREATE TABLE `roles` (
+CREATE TABLE IF NOT EXISTS `roles` (
   `role_id` varchar(50) NOT NULL,
-  `role_name` varchar(25) DEFAULT NULL
+  `role_name` varchar(25) DEFAULT NULL,
+  PRIMARY KEY (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -118,13 +131,16 @@ INSERT INTO `roles` (`role_id`, `role_name`) VALUES
 -- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `user_id` varchar(50) NOT NULL,
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `password` varchar(255) NOT NULL,
   `bio` text DEFAULT NULL,
-  `role` varchar(50) DEFAULT NULL
+  `role` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email` (`email`),
+  KEY `role` (`role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -133,53 +149,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `bio`, `role`) VALUES
 ('1', 'John Doe', 'johndoe@gmail.com', 'johndoe', 'Sample bio here', '1');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`category_id`);
-
---
--- Indexes for table `claims`
---
-ALTER TABLE `claims`
-  ADD PRIMARY KEY (`claim_id`),
-  ADD KEY `inq_id` (`inq_id`);
-
---
--- Indexes for table `inquiries`
---
-ALTER TABLE `inquiries`
-  ADD PRIMARY KEY (`inq_id`),
-  ADD KEY `item_id` (`item_id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `items`
---
-ALTER TABLE `items`
-  ADD PRIMARY KEY (`item_id`),
-  ADD KEY `category_id` (`category_id`),
-  ADD KEY `admin_id` (`admin_id`);
-
---
--- Indexes for table `roles`
---
-ALTER TABLE `roles`
-  ADD PRIMARY KEY (`role_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `email` (`email`),
-  ADD KEY `role` (`role`);
 
 --
 -- Constraints for dumped tables
