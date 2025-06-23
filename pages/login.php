@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +14,8 @@
         <img src="../assets/images/heroimage.png" alt="hero section image" />
       </section>
 
-      <form action="/submit" method="post" class="form-panel">
+
+      <form action="../login_handler.php" method="post" class="form-panel">
         <img
           src="../assets/images/smallerimage.png"
           alt="smaller image"
@@ -22,6 +25,12 @@
         />
 
         <fieldset>
+          <?php 
+            if (!empty($_SESSION['error'])) { 
+              echo "<p class='error'>&#9888; " . htmlspecialchars($_SESSION['error']) . "</p>";
+              unset($_SESSION['error']);
+            }
+          ?>
 
           <label for="username">
             Username

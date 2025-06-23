@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +13,9 @@
 <body>
   <header class="navbar">
     <div class="logo">
-      <img src="../assets/images/Ellipse 3.png" alt="Logo" />LI-FI
+      <img src="../assets/images/Ellipse 3.png" alt="Logo" />LI-FI 
     </div>
+
     <nav class="nav-links">
       <a href="../pages/dashboard.php">Dashboard</a>
       <a href="../pages/inquiries.php">Inquiries</a>
@@ -20,11 +23,20 @@
     </nav>
     <div class="profile">
       <a href="../pages/profile.php">
-      <img
-        src="https://images.unsplash.com/photo-1732550216149-41c470c95e53?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        alt="User Profile"
-      />
-    </a>
+
+        <?php 
+          $relativeImagePath = htmlspecialchars($_SESSION['profile_pic']);
+          $imagePath = '/lost_and_found' . '/' . $relativeImagePath;
+
+          echo "<img src=". $imagePath . " />";
+        ?>
+
+        <span style="text-decoration: none;">
+          <?= htmlspecialchars($_SESSION['username'] ?? 'Guest') ?>
+        </span>
+
+
+      </a>
     </div>
   </header>
 </body>
