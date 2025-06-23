@@ -1,20 +1,23 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
     <title>Registration Form</title>
   </head>
   <body>
     <div class="container">
       <section class="image-panel">
-        <img src="/assets/images/heroimage.png" alt="hero section image" />
+        <img src="../assets/images/heroimage.png" alt="hero section image" />
       </section>
 
-      <form action="/submit" method="post" class="form-panel">
+
+      <form action="../login_handler.php" method="post" class="form-panel">
         <img
-          src="assets/images/smallerimage.png"
+          src="../assets/images/smallerimage.png"
           alt="smaller image"
           width="100"
           height="100"
@@ -22,6 +25,12 @@
         />
 
         <fieldset>
+          <?php 
+            if (!empty($_SESSION['error'])) { 
+              echo "<p class='error'>&#9888; " . htmlspecialchars($_SESSION['error']) . "</p>";
+              unset($_SESSION['error']);
+            }
+          ?>
 
           <label for="username">
             Username
@@ -50,7 +59,7 @@
           <input type="submit" value="Login" class="submit" />
           <p>
             Don't have an account?
-            <a href="login.html">Sign up</a>
+            <a href="../index.php">Sign up</a>
           </p>
         </fieldset>
               </fieldset>

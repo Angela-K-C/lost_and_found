@@ -1,92 +1,97 @@
 # 🧭 Lost and Found Campus Portal
 
-A campus-oriented lost and found web application that bridges the gap between students, staff, and the physical Lost and Found office. The system provides an accessible and centralized platform for reporting and locating lost or found items.
-
----
-
-## 🧨 Problem
-
-Every day, students on campus lose belongings like books, bottles, school IDs, and more. Although a Lost and Found office exists, many are unaware of its location, resulting in:
-
-* Lost items going unclaimed
-* Increased workload for staff
-* Crowded and disorganized Lost and Found offices
-* Permanent loss of student property
-
----
-
-## 💡 Solution
-
-This platform offers a **simple, 24/7 accessible website** that allows students and staff to:
-
-* Report lost or found items online
-* View and search listings of reported items
-* Get directions to the physical Lost and Found office
-* Receive notifications when potential matches are found
-
-This streamlines the Lost and Found process, enhances transparency, and reduces congestion at physical offices.
+A campus-oriented lost and found web application that helps students and staff report and find lost belongings, reducing physical office traffic and increasing item recovery rates.
 
 ---
 
 ## 👥 Users of the System
 
-### 1. General Users (Students and Staff)
-
-* Create an account using school credentials
-* Report lost or found items
-* View and search item listings
-* Get directions to the physical Lost and Found office
-* Receive notifications on matched items
+### 1. General Users (Students & Staff)
+- Register and log in using school credentials  
+- Report and search for lost/found items  
+- View office directions  
+- Receive updates on item matches
 
 ### 2. Admin
-
-* Sign in using institutional credentials
-* Manage item submissions (approve, remove duplicates, delete inappropriate content)
-* Upload found items and moderate listings
-* Verify claims and resolve cases
-* Send notifications to users
-* Log out securely to prevent unauthorized access
+- Moderate submissions  
+- Manage duplicate or inappropriate reports  
+- Close resolved cases  
+- Notify users about important updates
 
 ---
 
-## 🧾 User Stories
+## 🗂️ File Structure
 
-### 👤 As a Student or Staff Member:
-
-* I want to **create a personal profile and log in** using school credentials
-* I want to **report, search, or inquire** about lost items
-* I want to **receive notifications** when there’s a match to my lost item
-* I want to **securely log out** after I’m done
-
-### 🔐 As an Admin:
-
-* I want to **log in with institutional credentials**
-* I want to **manage lost and found items**
-* I want to **verify inquiries and moderate content**
-* I want to **send and receive notifications**
-* I want to **close resolved cases**
-* I want to **log out securely**
-
----
-
-## 📊 Use Case Diagram
-
-
----
-
-## 🚀 Project Goals
-
-* Centralize the Lost and Found process
-* Minimize student losses
-* Reduce staff burden
-* Improve item recovery rate
+```
+project_root/
+│
+├── index.php                     # Landing page of the website
+│
+├── assets/                      # Static assets
+│   ├── css/
+│   │   ├── style.css            # Main stylesheet
+│   │   └── navstyles.css        # Styles for navigation bar
+│   ├── icons/                   # Icon assets
+│   └── images/                  # Image assets
+│
+├── js/                          # JavaScript files (future enhancements)
+│
+├── includes/
+│   └── navbar.php               # Reusable navigation bar component
+│
+├── pages/
+│   └── login.php                # User login page
+│
+├── sql/
+│   └── schema.sql               # SQL file to create and initialize database
+```
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ How to Run the Project Locally
 
-**Frontend:** HTML, CSS and Javascript
-**Backend:** PHP
-**Database:** MySQL
+### 📦 Requirements
+
+- PHP (v7.4 or later)
+- MySQL/MariaDB
+- Apache or any local PHP server (e.g. XAMPP, WAMP, Laragon)
 
 ---
+
+### 🧑‍💻 Setup Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/your-username/lost-and-found.git
+cd lost-and-found
+```
+
+2. **Set up the database**
+
+- Open your database client (e.g. phpMyAdmin or MySQL CLI)
+- Run the `schema.sql` file located in the `sql/` folder to create the required tables
+
+3. **Start a local PHP server (if not using XAMPP/WAMP)**
+
+```bash
+php -S localhost:8000
+```
+
+Then visit `http://localhost:8000/index.php` in your browser.
+
+4. **If using XAMPP/WAMP:**
+
+- Place the project in your `htdocs` (XAMPP) or `www` (WAMP) directory
+- Start Apache and MySQL services
+- Visit `http://localhost/lost-and-found/index.php`
+
+---
+
+## 👥 Group Members
+
+- **Kosgei Angela Chepngeno**
+- **Alicia Maryanne**
+- **Maina Robert Ndung'u** 
+- **Ochieng Wendy Wendo**  
+- **Munene Michelle Gakenyi**

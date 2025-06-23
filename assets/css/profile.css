@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+h1{
+    padding-top: 5px;
+    padding-left: 20px;
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+    color: #5d3b76;
+    margin-top: 40px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 5px;  
+    font-family: "Inter";
+}
+
+.image-container {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.upload-area {
+    border: 2px dashed #ccc;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    color: #666;
+    width: 100%;
+    height: 100%;
+    height: auto;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+}
+
+
+.icon-with-text {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.icon-text {
+    align-items: left;
+    font-size: 14px;
+    color: black;
+}
+
+.section-title {
+    font-size: 16px;
+    font-family: 'Inter';
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.form-container {
+    font-size: 14px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    gap: 10px;
+    padding: 10px 30px;
+    margin-left: 20%;
+}
+
+.lbl {
+    color: black;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    border-radius: 6px;
+}
+
+#uname,#uid {
+    background: url('../images/person_circle-256.png') no-repeat left center;
+    background-size: 20px 20px; 
+    padding-left: 20px; 
+}
+
+#email{
+    background: url('../images/mail-icon.png') no-repeat left center;
+    background-size: 15px 15px; 
+    padding-left: 20px;   
+}
+
+#pword{
+    background: url('../images/lock-icon.png') no-repeat left center;
+    background-size: 25px 25px; 
+    padding-left: 20px; 
+    padding-right: 0px; 
+
+}
+
+input[type="submit"]{
+    border: solid;
+    border-radius: 5px ;
+    border-color: rgb(153, 102, 204);
+    padding: 5px;
+    width: 105px;
+    
+    
+}
+#submit-container{
+    margin-left: auto;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+.yoh{
+    color:rgb(153, 102, 204);
+}
+.yoh:hover{
+    color:black;
+}
+.yah{
+    color:white;
+    background-color: rgb(153, 102, 204);
+}
+.yah:hover{
+    color:black;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .form-container,
+    .image-container {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: 200%;
+    }
+}

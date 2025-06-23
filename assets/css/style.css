@@ -110,14 +110,16 @@ body {
 }
 
 #username {
-  background-image: url("/assets/icons/account_circle.svg");
+  background-image: url("../icons/account_circle.svg");
 }
+
 #email {
-  background-image: url("/assets/icons/mail.svg");
+  background-image: url("../icons/mail.svg");
 }
+
 #password,
 #confirm-password {
-  background-image: url("/assets/icons/lock.svg");
+  background-image: url("../icons/lock.svg");
 }
 
 .icon-input::placeholder {
@@ -139,6 +141,16 @@ body {
 }
 .form-panel .submit:hover {
   background-color: var(--color-primary-hover);
+}
+
+.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 @media (max-width: 768px) {
