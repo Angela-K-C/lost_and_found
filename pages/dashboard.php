@@ -42,9 +42,8 @@
       </section>
 
       <main class="card-grid">
-      <?php include 'dashboard_get.php'; ?>
-        
-    </main>
+        <?php include '../dashboard_get.php'; ?>
+      </main>
 
     <script>
       const redirectToUpload = () => {

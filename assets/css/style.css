@@ -143,6 +143,16 @@ body {
   background-color: var(--color-primary-hover);
 }
 
+.error {
+  color: #a94442;
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
 @media (max-width: 768px) {
   .container {
     flex-direction: column;
