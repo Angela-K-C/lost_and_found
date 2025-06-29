@@ -1,3 +1,9 @@
+:root {
+  --theme-color: #8358ff;
+  --card-max-width: 360px;
+}
+
+/* Reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,11 +12,12 @@
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: #f9f9f9;
+  background: #f9f9f9;
   color: #333;
-  padding: 0 2rem;
+  padding: 0;
 }
 
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -21,18 +28,16 @@ body {
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: "Kaushan Script", cursive;
   display: flex;
   align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .logo img {
-  height: 40px;
   width: 40px;
+  height: 40px;
   border-radius: 50%;
-  object-fit: cover;
   margin-right: 10px;
 }
 
@@ -44,108 +49,209 @@ body {
 }
 
 .profile img {
-  border-radius: 50%;
-  height: 40px;
   width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-/* Search Filter */
-.search-filter {
-  margin: 1.5rem 0;
+/* Dashboard layout */
+.dashboard-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+/* Search + filters section */
+.item-controls {
   display: flex;
+  flex-direction: column;
   gap: 1rem;
-  flex-wrap: wrap;
-  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.search-filter input,
-.search-filter select {
+.search-upload {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.search-group input {
+  flex: 1;
+  max-width: 400px;
   padding: 0.6rem 1rem;
   font-size: 1rem;
-  border-radius: 6px;
   border: 1px solid #ccc;
-  min-width: 180px;
+  border-radius: 6px;
 }
 
-.filter-btn {
+/* Filter icon button */
+.filter-icon {
+  width: 36px;
+  height: 36px;
   background: #e4e4e4;
+  padding: 0.4rem;
   border: none;
   border-radius: 6px;
-  padding: 0.6rem 1rem;
   cursor: pointer;
 }
 
-/* Card Grid */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+.filter-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-/* Cards */
-.card {
+/* Upload button */
+.upload-button {
+  background: var(--theme-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+
+.upload-button:hover {
+  background: #673dd9;
+}
+
+/* Filter selects */
+.filter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filter-options select {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  min-width: 180px;
+  background: white
+    url('data:image/svg+xml;utf8,<svg fill="%23333" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>')
+    no-repeat right 1rem center;
+  background-size: 1rem;
+  appearance: none;
+}
+
+/* Item cards grid */
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+  justify-content: start;
+}
+
+/* Individual card style */
+.item-grid .card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease-in-out;
+  max-width: var(--card-max-width);
+  margin: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
 }
 
-.card:hover {
+a #card-link {
+  all: unset; 
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-grid .card:hover {
   transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.card img {
+.item-grid .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
 
-.card-content {
+.item-grid .card-content {
   padding: 1rem;
-}
-
-.card-content h4 {
-  font-size: 1.05rem;
-  margin-bottom: 0.5rem;
-}
-
-.card-content p {
-  font-size: 0.9rem;
-  margin-bottom: 0.3rem;
-  color: #555;
-}
-
-.search-filter {
-  margin: 1.5rem 0;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
-.search-bar {
+.item-grid .card-content h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.item-grid .card-content p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+/* Consistent icon/label styling */
+.item-grid .card-content .label {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #666;
 }
 
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  body {
+    padding: 0 1rem;
+  }
+
+  .search-upload {
+    flex-wrap: wrap;
+  }
+
+  .upload-button {
+    align-self: flex-end;
+  }
+
+  .filter-options {
+    justify-content: center;
+  }
+
+  .item-grid {
+    gap: 1rem;
+  }
 }
 
-.search-filter select {
-  padding: 0.6rem 2.5rem 0.6rem 1rem;
-  font-size: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  min-width: 180px;
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg fill="%23333" height="14" viewBox="0 0 24 24" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1rem;
+@media (max-width: 480px) {
+  .filter-options {
+    flex-direction: column;
+  }
+
+  .filter-options select {
+    width: 100%;
+  }
+
+  .upload-button {
+    width: 100%;
+  }
+
+  .item-grid {
+    grid-template-columns: 1fr;
+  }
 }
