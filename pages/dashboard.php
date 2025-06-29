@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>LI-FI Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/dashboard.css?v=9999" />
+    <link rel="stylesheet" href="../assets/css/dashboard.css" />
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
   </head>
   <body>

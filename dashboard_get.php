@@ -13,6 +13,8 @@
 
     while ($row = $result->fetch_assoc()) {
 
+      $itemId = htmlspecialchars($row['item_id']);
+
       $relativeImagePath = htmlspecialchars($row['image_url']);
       $imagePath = '/lost_and_found' . '/' . $relativeImagePath;
 
@@ -21,17 +23,20 @@
       $location = htmlspecialchars($row['location']);
       $dateLocated = htmlspecialchars($row['date_located']);
 
-      echo "
-        <div class='card'>
-          <img src='" . $imagePath . "' alt='" . $itemName . "' />
-          <div class='card-content'>
-            <h4>" . getItemEmoji($category) . " " . $itemName . " </h4>
-            <p>📂 " . $category . "</p>
-            <p>📍 " . $location . "</p>
-            <p>📅 " . date("d/m/Y", strtotime($dateLocated)) . "</p>
-          </div>
-        </div>
-      ";
+      echo '
+  <a href="inquiries_and_requests.php?item_id=' . $itemId . '" class="card-link"
+     style="cursor: pointer; color: inherit; text-decoration: none;">
+    <div class="card">
+      <img src="' . $imagePath . '" alt="' . $itemName . '" />
+      <div class="card-content">
+        <h4>' . getItemEmoji($category) . ' ' . $itemName . '</h4>
+        <p>📂 ' . $category . '</p>
+        <p>📍 ' . $location . '</p>
+        <p>📅 ' . date("d/m/Y", strtotime($dateLocated)) . '</p>
+      </div>
+    </div>
+  </a>';
+
     }
   } else {
     echo '<p>No items found.</p>';
