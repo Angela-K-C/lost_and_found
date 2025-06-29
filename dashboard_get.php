@@ -42,7 +42,7 @@
     echo '<p>No items found.</p>';
   }
 
-  // Optional: function to return an emoji based on category
+  // function to return an emoji based on category
   function getItemEmoji($category) {
     $map = [
       "Electronics" => "💻",
