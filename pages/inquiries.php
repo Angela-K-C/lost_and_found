@@ -1,62 +1,40 @@
+<!-- inquiries_results.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inquiries - Lost and Found</title>
-  <link rel="stylesheet" href="../assets/css/inquiries.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LI-FI Inquiries</title>
+  <link rel="stylesheet" href="../assets/css/dashboard.css" />
   <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <!-- Navbar here -->
   <?php include '../includes/navbar.php' ?>
 
-  <div class="title">Inquiries</div>
-  <div class="filters">
-    <span><img src="../assets/images/folder.png" style="width: 15px;"/> All</span>
-    <span><img src="../assets/images/folder.png" style="width: 15px;"/> Pending</span>
-    <span><img src="../assets/images/folder.png" style="width: 15px;"/> Resolved</span>
-  </div>
-  <div class="cards">
-    <div class="card">
-      <img src="https://images.pexels.com/photos/32463116/pexels-photo-32463116/free-photo-of-black-power-adapter-on-yellow-background.jpeg" alt="Laptop Charger" />
-      <div class="card-body">
-         <h3>
-          <a href="../pages/approval.php" class="inquiry-link">Laptop Charger</a>
-        </h3>
-        <p><i class="fa-solid fa-tag" style="color: purple;"></i> Electronics</p>
-        <p>	<i class="fa-solid fa-location-dot" style="color: red;"></i> STMB 1st floor</p>
-        <p><i class="fa-solid fa-clock" style="color: lightblue;"></i> 12/04/2025</p>
-        <div class="status pending">Pending</div>
+  <div class="inquiries-page">
+    <!-- Filter section -->
+    <section class="item-controls">
+      <div class="search-upload">
+        <div class="search-group">
+          <button class="filter-icon">
+            <img src="../assets/images/filter.png" alt="filter" />
+          </button>
+          <input type="text" placeholder="Search for inquiries" />
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <img src="https://images.pexels.com/photos/32463116/pexels-photo-32463116/free-photo-of-black-power-adapter-on-yellow-background.jpeg" alt="Laptop Charger" />
-      <div class="card-body">
-        <h3>
-          <a href="../pages/approval.php" class="inquiry-link">Laptop Charger</a>
-        </h3>
-        <p><i class="fa-solid fa-tag" style="color: purple;"></i> Electronics</p>
-        <p><i class="fa-solid fa-location-dot" style="color: red;"></i> STMB 1st floor</p>
-        <p><i class="fa-solid fa-clock" style="color: lightblue;"></i> 12/04/2025</p>
-        <div class="status approved">Approved</div>
+      <div class="filter-options">
+        <select><option>Date</option></select>
+        <select><option>Category</option></select>
+        <select><option>Location</option></select>
+        <select><option>Status</option></select>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <img src="https://images.pexels.com/photos/32463116/pexels-photo-32463116/free-photo-of-black-power-adapter-on-yellow-background.jpeg" alt="Laptop Charger" />
-      <div class="card-body">
-        <h3>
-          <a href="../pages/approval.php" class="inquiry-link">Laptop Charger</a>
-        </h3>
-        <p><i class="fa-solid fa-tag" style="color: purple;"></i> Electronics</p>
-        <p><i class="fa-solid fa-location-dot" style="color: red;"></i> STMB 1st floor</p>
-        <p><i class="fa-solid fa-clock" style="color: lightblue;"></i> 12/04/2025</p>
-        <div class="status rejected">Rejected</div>
-      </div>
-    </div>
+    <!-- Inquiries display grid -->
+    <main class="item-grid">
+      <?php include '../inquiries_get.php'; ?>
+    </main>
   </div>
 </body>
 </html>
