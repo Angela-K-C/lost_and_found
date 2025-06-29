@@ -24,7 +24,7 @@
       $dateLocated = htmlspecialchars($row['date_located']);
 
       echo '
-  <a href="inquiries_and_requests.php?item_id=' . $itemId . '" class="card-link"
+  <a href="inquiries_and_requests.php?item_id=' . urlencode($itemId) . '" class="card-link"
      style="cursor: pointer; color: inherit; text-decoration: none;">
     <div class="card">
       <img src="' . $imagePath . '" alt="' . $itemName . '" />
