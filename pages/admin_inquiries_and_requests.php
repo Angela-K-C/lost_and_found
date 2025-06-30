@@ -44,7 +44,7 @@ if (isset($_GET['item_id'])) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Review Inquiry</title>
-  <link rel="stylesheet" href="../assets/css/admin_inquiries_and_requests.css?v=1.2" />
+  <link rel="stylesheet" href="../assets/css/admin_inquiries_and_requests.css" />
 </head>
 <body>
 
