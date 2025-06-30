@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f6f7;
+}
+
+.notifications-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.05);
+}
+
+.notifications-container h2 {
+  color: #5d3b76;
+  font-family: "Kaushan Script", cursive;
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+
+.notification-list {
+  list-style: none;
+  padding: 0;
+}
+
+.notification-list li {
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  gap: 12px;
+}
+
+.notification-list li .icon {
+  font-size: 22px;
+}
+
+.notification-list li .time {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 6px;
+  display: block;
+}
