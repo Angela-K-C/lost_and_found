@@ -1,4 +1,5 @@
-<?php session_start() ?>
+<?php if (session_status() === PHP_SESSION_NONE) session_start(); ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,16 +20,19 @@
     <nav class="nav-links">
       <a href="../pages/dashboard.php">Dashboard</a>
       <a href="../pages/inquiries.php">Inquiries</a>
-      <a href="#">Notifications</a>
+      <a href="../pages/notifications.php">Notifications</a>
     </nav>
     <div class="profile">
       <a href="../pages/profile.php">
 
         <?php 
-          $relativeImagePath = htmlspecialchars($_SESSION['profile_pic']);
-          $imagePath = '/lost_and_found' . '/' . $relativeImagePath;
+           $defaultImage = '../assets/images/default.png';
+  $relativeImagePath = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : $defaultImage;
+  $imagePath = strpos($relativeImagePath, 'uploads/') !== false 
+               ? '/lost_and_found/' . htmlspecialchars($relativeImagePath)
+               : htmlspecialchars($relativeImagePath);
 
-          echo "<img src=". $imagePath . " />";
+  echo "<img src='$imagePath' alt='Profile Picture' />";
         ?>
 
         <span style="text-decoration: none;">
