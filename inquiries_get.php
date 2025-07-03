@@ -1,11 +1,52 @@
 <?php
+
 require 'connection.php';
 
+// Get search value if set
+$search = isset($_GET['search']) ? trim($_GET['search']) : '';
+$location = isset($_GET['location']) ? trim($_GET['location']) : '';
+$date = isset($_GET['date']) ? trim($_GET['date']) : '';
+$category = isset($_GET['category']) ? trim($_GET['category']) : '';
+$status = isset($_GET['status']) ? trim($_GET['status']) : '';
+
+$search = $conn->real_escape_string($search);
+$location = $conn->real_escape_string($location);
+$date = $conn->real_escape_string($date);
+$category = $conn->real_escape_string($category);
+$status = $conn->real_escape_string($status);
+
+// Dynamic WHERE clause
+$where = [];
+
+if ($search !== '') {
+  $where[] = "(item_name LIKE '%$search%' OR category_name LIKE '%$search%')";
+}
+
+if ($location !== '') {
+  $where[] = "location LIKE '%$location%'";
+}
+
+if ($date !== '') {
+  $where[] = "date_located = '$date'";
+}
+
+if ($category !== '') {
+  $where[] = "items.category_id = '$category'";
+}
+
+if ($status !== '') {
+  $where[] = "inquiries.status = '$status'";
+}
+
+$whereClause = count($where) ? "WHERE " . implode(" AND ", $where) : '';
+
+
 $sql = "SELECT inquiries.*, items.item_name, items.image_url, items.location, items.date_located, 
-               categories.category_name
+               categories.category_name, categories.category_id
         FROM inquiries
         JOIN items ON inquiries.item_id = items.item_id
         JOIN categories ON items.category_id = categories.category_id
+        $whereClause
         ORDER BY inquiries.inq_date DESC";
 
 $result = $conn->query($sql);

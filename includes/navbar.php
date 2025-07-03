@@ -26,13 +26,13 @@
       <a href="../pages/profile.php">
 
         <?php 
-           $defaultImage = '../assets/images/default.png';
-  $relativeImagePath = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : $defaultImage;
-  $imagePath = strpos($relativeImagePath, 'uploads/') !== false 
+          $defaultImage = '../assets/images/profilepic.png';
+          $relativeImagePath = isset($_SESSION['profile_pic']) ? $_SESSION['profile_pic'] : $defaultImage;
+          $imagePath = strpos($relativeImagePath, 'uploads/') !== false 
                ? '/lost_and_found/' . htmlspecialchars($relativeImagePath)
                : htmlspecialchars($relativeImagePath);
 
-  echo "<img src='$imagePath' alt='Profile Picture' />";
+          echo "<img src='$imagePath' alt='Profile Picture' />";
         ?>
 
         <span style="text-decoration: none;">

@@ -16,7 +16,7 @@
 
         // Check if password is the same as the entered password 
         // TODO: hash password
-        while ($row = $result->fetch_assoc()) {
+        if ($row = $result->fetch_assoc()) {
             if ($row['password'] == $password) {
 
                 $_SESSION['user_id'] = $row['user_id'];
