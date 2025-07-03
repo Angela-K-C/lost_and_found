@@ -2,10 +2,10 @@
   require 'connection.php';
 
   // Get search value if set
-  $search = isset($_GET['search']) ? trim($_GET['search']) : '';
-  $location = isset($_GET['location']) ? trim($_GET['location']) : '';
-  $date = isset($_GET['date']) ? trim($_GET['date']) : '';
-  $category = isset($_GET['category']) ? trim($_GET['category']) : '';
+  $search = isset($_POST['search']) ? trim($_POST['search']) : '';
+  $location = isset($_POST['location']) ? trim($_POST['location']) : '';
+  $date = isset($_POST['date']) ? trim($_POST['date']) : '';
+  $category = isset($_POST['category']) ? trim($_POST['category']) : '';
 
   $search = $conn->real_escape_string($search);
   $location = $conn->real_escape_string($location);

@@ -15,7 +15,7 @@
 
   <div class="inquiries-page">
 
-    <form action="" method='GET' id="filters">
+    <form action="" method='POST' id="filters">
       <!-- Filter section -->
       <section class="item-controls">
         <div class="search-upload">

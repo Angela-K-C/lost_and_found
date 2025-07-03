@@ -15,7 +15,7 @@
 
     <div class="dashboard-page">
       <!-- Item search & filter section -->
-      <form method="GET" action="" class="item-controls">
+      <form method="POST" action="" class="item-controls">
         <div class="search-upload">
           <div class="search-group">
 
@@ -25,7 +25,7 @@
 
             <input type="text" name="search" placeholder="Search for items" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" />
           </div>
-          <button class="upload-button" onclick="redirectToUpload()">Upload an item</button>
+          <button class="upload-button" onclick="redirectToUpload()" type="button">Upload an item</button>
         </div>
 
         <div class="filter-options" id="filters">
@@ -81,7 +81,9 @@
       const form = filters.closest("form");
 
       const redirectToUpload = () => {
+        console.log("Redirecting...");
         window.location.href = '../pages/upload.php';
+        
       }
 
       // Reset filters
