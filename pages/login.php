@@ -1,4 +1,30 @@
-<?php session_start() ?>
+<?php
+
+session_start();
+require '../connection.php';
+if ($_SERVER['REQUEST_METHOD']== 'POST'){
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+  $stmt->bind_param("s", $username);
+  $stmt->execute();
+  $result = stmt->get_result();
+  $user = $result->fetch_assoc();
+
+  if ($user && password_verify($password, $user['password'])) {
+    $_SESSION['user_id'] = $user['id'];
+    $_session['username'] = $user['username'];
+    $_session['profile_pic'] = $user['profile_image'];
+    
+    header("Location: ../pages/dashboard.php");
+    exit;
+  }else {
+    $error = "Invalid username or password.";
+  }
+
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
