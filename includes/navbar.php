@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<!-- <?php session_start() ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@
       <a href="../pages/profile.php">
 
         <?php 
-          $relativeImagePath = htmlspecialchars($_SESSION['profile_pic']);
+          $relativeImagePath = htmlspecialchars($_SESSION['profile_pic'] ?? 'assets/images/add_photo.png');
           $imagePath = '/lost_and_found' . '/' . $relativeImagePath;
 
           echo "<img src=". $imagePath . " />";

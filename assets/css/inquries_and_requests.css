@@ -26,7 +26,7 @@ header {
   height: 45px;
   object-fit: cover;
   border-radius: 50%;
-  border:none;
+  border: none;
 }
 
 .logo-text {
@@ -36,17 +36,18 @@ header {
 
 nav a {
   margin: 0 15px;
-  font-style:Kausha Script;
+  font-style: Kausha Script;
   font-weight: 500;
   text-decoration: none;
   color: #333;
   border-bottom: 1px dashed #a45ee5;
-   padding: 5px;
+  padding: 5px;
   transition: all 0.3s ease;
 }
+
 nav a:hover {
-  color:#f0e6fb;
-  background-color:#a45ee5 ;
+  color: #f0e6fb;
+  background-color: #a45ee5;
   border-radius: 5px;
 }
 
@@ -58,46 +59,69 @@ h2 {
   font-family: 'Brush Script MT', cursive;
   font-size: 28px;
   color: #444;
+  margin-bottom: 20px;
 }
 
 .container {
   display: flex;
   gap: 40px;
   margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .left {
   flex: 1;
+  max-width: 45%;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
+.right {
+  flex: 1;
+  max-width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 16px;
+}
+
 .item-img {
-  width: 80%;
-    height: 400px;
-  max-width:900px;
+  width: 100%;
+  height: auto;
+  max-width: 400px;
   border-radius: 10px;
 }
 
 label {
   font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  background-color: #fff;
+  box-sizing: border-box;
 }
 
 textarea {
-  width: 80%;
   min-height: 100px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
   resize: none;
-  font-family: inherit;
-  background-color: #fff;
 }
 
 .buttons {
   display: flex;
   gap: 15px;
+  margin-top: 10px;
 }
 
 button {
@@ -107,32 +131,25 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
 .Submit {
   background-color: white;
   border: 2px solid #a45ee5;
   color: #a45ee5;
 }
-.approve:hover {
+
+.Submit:hover {
   background-color: #a45ee5;
   color: white;
 }
 
-.reject {
-  background-color:#a45ee5;
+.Cancel {
+  background-color: #a45ee5;
   border: 2px solid #a45ee5;
   color: white;
 }
 
-.reject:hover {
-    background-color:white;
-    color: #a45ee5;
-}
-
-.right {
-  flex: 1;
-  font-size: 16px;
-}
-
-.right p {
-  margin-bottom: 15px;
+.Cancel:hover {
+  background-color: white;
+  color: #a45ee5;
 }

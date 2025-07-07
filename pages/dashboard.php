@@ -1,15 +1,3 @@
-<?php
-session_start();
-
-if (!isset($__SESSION['user_id'])){
-  header("Location: ../pages/login.php");
-  exit();
-}
-?>
-
-<h2>Welcome, <?php echo $_SESSION['username']; ?></h2>
-<img src="uploads/<?php echo $__SESSION['profile_pic']"; ?>" alt="Profile Image" >
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
