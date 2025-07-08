@@ -4,6 +4,7 @@ body {
   background-color: #f8f6f7;
 }
 
+
 .notifications-container {
   max-width: 850px;
   margin: 40px auto;
@@ -12,7 +13,6 @@ body {
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
 }
-
 .notifications-container h2 {
   font-family: "Kaushan Script", cursive;
   font-size: 28px;
