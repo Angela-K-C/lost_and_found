@@ -38,7 +38,7 @@ body {
 /* Cards container */
 .cards {
   display: flex;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  flex-wrap: wrap; 
   gap: 30px;
   margin: 0 30px;
 }
@@ -113,6 +113,4 @@ body {
   color: #000;
 }
 
-/* .  fa-folder {
-  color: rgb(241, 241, 5);
-} */
+/* adding a comment to check for changees */
