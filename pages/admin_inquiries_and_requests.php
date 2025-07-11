@@ -1,3 +1,5 @@
+admin_inquiries_and_requests
+
 <?php
 require '../connection.php';
 

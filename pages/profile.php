@@ -1,24 +1,24 @@
 <?php
-    session_start();
-    require '../connection.php';
+session_start();
+require '../connection.php';
 
-    if (!isset($_SESSION['user_id'])) {
-        header("Location: login.php");
-        exit();
-    }
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
-    $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 
-    $sql = "SELECT * FROM users WHERE user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $user_id);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+$sql = "SELECT * FROM users WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
-    $username = $user['username'];
-    $email = $user['email'];
-    $profile_pic = !empty($user['profile_pic']) ? '../' . $user['profile_pic'] : '../assets/images/add_photo.png';
+$username = $user['username'];
+$email = $user['email'];
+$profile_pic = !empty($user['profile_pic']) ? '../' . $user['profile_pic'] : '../assets/images/add_photo.png';
 ?>
 
 <!DOCTYPE html>
@@ -39,36 +39,39 @@
 <div class="container">
 
   <div class="left">
-  <p class="section-title">Profile Picture</p>
+    <p class="section-title">Profile Picture</p>
 
-  <form method="POST" action="../process_profile.php" enctype="multipart/form-data">
-    <div class="upload-area">
-      <label for="profilePic">
-        <img id="preview" src="<?= $profile_pic ?? '../assets/images/add_photo.png' ?>" />
-        <input type="file" name="profilePic" id="profilePic" accept="image/*" onchange="previewImage(event)">
-      </label>
-    </div>
+    <form method="POST" action="../process_profile.php" enctype="multipart/form-data">
+      <input type="hidden" name="action" value="update_profile_pic">
+      
+      <div class="upload-area">
+        <label for="profilePic">
+          <img id="preview" src="<?= htmlspecialchars($profile_pic) ?>" alt="Profile Picture" />
+          <input type="file" name="profilePic" id="profilePic" accept="image/*" onchange="previewImage(event)">
+        </label>
+      </div>
 
-    <div class="icon-with-text">
-      <img src="../assets/images/editing icon.png" width="15" height="15" />
-      <span class="icon-text">Edit Profile Picture</span>
-    </div>
+      <div class="icon-with-text">
+        <img src="../assets/images/editing icon.png" width="15" height="15" />
+        <span class="icon-text">Edit Profile Picture</span>
+      </div>
 
-    <!-- Buttons Row -->
-    <div class="button-row">
-      <input type="submit" class="yah" value="Save Picture">
-  </form>
+      <!-- Buttons Row -->
+      <div class="button-row">
+        <input type="submit" class="yah" value="Save Picture">
+      </div>
+    </form>
 
-      <form method="POST" action="log_out.php">
-        <input class="yoh" type="submit" value="Log Out">
-      </form>
-    </div>
-</div>
-
+    <form method="POST" action="log_out.php">
+      <input class="yoh" type="submit" value="Log Out">
+    </form>
+  </div>
 
   <!-- Right -->
   <div class="right">
     <form method="POST" action="../process_profile.php" enctype="multipart/form-data" class="form-container">
+      <input type="hidden" name="action" value="update_profile_details">
+      
       <p class="section-title">Personal Details</p>
 
       <label for="uname">Username</label>
@@ -90,29 +93,18 @@
 </div>
 
 <script>
-  function previewImage(event) {
-    const reader = new FileReader();
-    reader.onload = function () {
-      document.getElementById('preview').src = reader.result;
-    };
-    reader.readAsDataURL(event.target.files[0]);
-  }
-</script>
-
-
-
-<script>
-    function previewImage(event) {
+function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
         const reader = new FileReader();
         reader.onload = function () {
             const preview = document.getElementById('preview');
             preview.src = reader.result;
         };
-        reader.readAsDataURL(event.target.files[0]);
+        reader.readAsDataURL(file);
     }
+}
 </script>
 
 </body>
 </html>
-
-<!-- commenting for changes -->

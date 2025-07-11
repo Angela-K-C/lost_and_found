@@ -1,10 +1,23 @@
-<?php include 'all_users_get.php'; ?>
+<?php
+// Super Admin access control - MUST be at the very top
+session_start();
+require_once '../connection.php';
+
+// Check if user is logged in and has Super Admin access ONLY
+if (!isset($_SESSION['role_name']) || $_SESSION['role_name'] !== 'Super Admin') {
+    header("Location: dashboard.php");
+    exit;
+}
+
+// Now include the data retrieval
+include 'all_users_get.php'; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All Users</title>
+    <title>All Users - Super Admin</title>
     <link rel="stylesheet" href="../assets/css/all_users.css">
 </head>
 <body>
