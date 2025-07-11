@@ -1,9 +1,9 @@
 <?php session_start(); ?>
 
 <?php 
-  // Redirect to dashboard page if user is not admin
-  if (!isset($_SESSION['role_name'])) {
-    header("Location: ../login.php");
+  // Check if user is logged in and has admin or super admin access
+  if (!isset($_SESSION['role_name']) || ($_SESSION['role_name'] !== 'Admin' && $_SESSION['role_name'] !== 'Super Admin')) {
+    header("Location: login.php");
     exit;
   }
 ?>

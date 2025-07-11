@@ -1,0 +1,5 @@
+[11-Jul-2025 21:16:48 Europe/Berlin] PHP Fatal error:  Uncaught mysqli_sql_exception: Column 'username' cannot be null in C:\xampp\htdocs\lost_and_found\process_profile.php:42
+Stack trace:
+#0 C:\xampp\htdocs\lost_and_found\process_profile.php(42): mysqli_stmt->execute()
+#1 {main}
+  thrown in C:\xampp\htdocs\lost_and_found\process_profile.php on line 42

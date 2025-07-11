@@ -73,7 +73,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`role_id`, `role_name`) VALUES
 ('1', 'Admin'),
-('2', 'Student');
+('2', 'Student'),
+('3', 'Super Admin');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -88,7 +89,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `bio`, `role`, `profile_pic`, `status`) VALUES
-('1', 'John Doe', 'johndoe@gmail.com', 'johndoe', 'Sample bio here', '1', 'uploads/profile.jpg', 'active');
+('1', 'John Doe', 'johndoe@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Sample bio here', '3', 'uploads/profile.jpg', 'active'),
+('2', 'Alice Admin', 'alice.admin@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Admin account for managing items', '1', 'uploads/admin_profile.jpg', 'active'),
+('3', 'Sam Super', 'super.admin@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Super Admin with full privileges', '3', 'uploads/super_profile.jpg', 'active'),
+('4', 'Steve Student', 'steve.student@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Student user account', '2', 'uploads/student_profile.jpg', 'active');
 
 ALTER TABLE `categories` ADD PRIMARY KEY (`category_id`);
 ALTER TABLE `claims` ADD PRIMARY KEY (`claim_id`), ADD KEY `inq_id` (`inq_id`);

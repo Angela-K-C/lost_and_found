@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+// Check if user is logged in and has admin or super admin access
+if (!isset($_SESSION['role_name']) || ($_SESSION['role_name'] !== 'Admin' && $_SESSION['role_name'] !== 'Super Admin')) {
+    header("Location: login.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
