@@ -3,7 +3,7 @@ session_start();
 include '../connection.php';
 
 $user_id = $_SESSION['user_id'];
-$role = $_SESSION['role']; 
+$role = ISSET($_SESSION['role']) ? $_SESSION['role'] : null; 
 
 
 if ($role === '1') {
