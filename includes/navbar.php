@@ -19,7 +19,13 @@
 
     <nav class="nav-links">
       <a href="../pages/dashboard.php">Dashboard</a>
-      <a href="../pages/inquiries.php">Inquiries</a>
+
+      <?php 
+        if (isset($_SESSION['role_name']) && $_SESSION['role_name'] === 'Admin') {
+          echo "<a href='../pages/inquiries.php'>Inquiries</a>";
+        }
+      ?>
+
       <a href="../pages/notifications.php">Notifications</a>
     </nav>
     <div class="profile">

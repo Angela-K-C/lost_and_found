@@ -6,7 +6,12 @@
     $password = $_POST['password'];
 
     // Get user from username
-    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt = $conn->prepare("
+        SELECT users.*, roles.role_name 
+        FROM users 
+        JOIN roles ON users.role = roles.role_id 
+        WHERE users.username = ?
+    ");
     $stmt->bind_param("s", $username);
     $stmt->execute();
 
@@ -22,6 +27,8 @@
                 $_SESSION['user_id'] = $row['user_id'];
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['profile_pic'] = $row['profile_pic'];
+                $_SESSION['role'] = $row['role'];
+                $_SESSION['role_name'] = $row['role_name'];
  
                 // Redirect to dashboard
                 header('Location: ./pages/dashboard.php');

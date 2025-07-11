@@ -1,3 +1,13 @@
+<?php session_start() ?>
+
+<?php 
+  // Redirect to dashboard page if user is not admin
+  if ($_SESSION['role_name'] !== 'Admin') {
+    header("Location: ./dashboard.php");
+    exit;
+  }
+?>
+
 <!-- inquiries_results.php -->
 <!DOCTYPE html>
 <html lang="en">

@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +27,12 @@
 
             <input type="text" name="search" placeholder="Search for items" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>" />
           </div>
-          <button class="upload-button" onclick="redirectToUpload()" type="button">Upload an item</button>
+
+          <?php 
+            if (isset($_SESSION['role_name']) && ($_SESSION['role_name'] === 'Admin')) {
+              echo "<button class='upload-button' onclick='redirectToUpload()' type='button'>Upload an item</button>";
+            }
+          ?>
         </div>
 
         <div class="filter-options" id="filters">
