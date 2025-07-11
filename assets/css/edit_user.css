@@ -1,0 +1,82 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.edit-user-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.edit-user-container h2 {
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.edit-user-form .form-group {
+  margin-bottom: 20px;
+}
+
+.edit-user-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #444;
+}
+
+.edit-user-form input[type="text"],
+.edit-user-form input[type="email"],
+.edit-user-form select,
+.edit-user-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.edit-user-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+.cancel-btn:hover {
+  background-color: #b0b0b0;
+}

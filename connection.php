@@ -2,7 +2,7 @@
     // Database credentials
     $host = "localhost";
     $username = "root";
-    $password = "";
+    $password = "asert";
     $database = "lost_and_found";
 
     // Create connection
