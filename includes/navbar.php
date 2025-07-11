@@ -28,7 +28,7 @@
 
       <a href="../pages/notifications.php">Notifications</a>
 
-      <a href="../pages/admin.php">Admin</a>
+      <a href="../pages/all_users.php">Admin</a>
     </nav>
     <div class="profile">
       <a href="../pages/profile.php">
