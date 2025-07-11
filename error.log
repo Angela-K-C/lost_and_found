@@ -3,3 +3,8 @@ Stack trace:
 #0 C:\xampp\htdocs\lost_and_found\process_profile.php(42): mysqli_stmt->execute()
 #1 {main}
   thrown in C:\xampp\htdocs\lost_and_found\process_profile.php on line 42
+[12-Jul-2025 01:09:55 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\lost_and_found\inquiries_get.php on line 56
+[12-Jul-2025 01:10:06 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\lost_and_found\inquiries_get.php on line 56
+[12-Jul-2025 01:14:32 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\lost_and_found\inquiries_get.php on line 2
+[12-Jul-2025 01:14:44 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\lost_and_found\inquiries_get.php on line 2
+[12-Jul-2025 01:14:46 Europe/Berlin] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in C:\xampp\htdocs\lost_and_found\inquiries_get.php on line 2
