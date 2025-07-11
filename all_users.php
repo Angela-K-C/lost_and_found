@@ -8,15 +8,7 @@
 </head>
 <body>
 
-  <!-- Optional Navbar -->
-  <header class="navbar">
-    <h1>LI-FI Admin Panel</h1>
-    <nav>
-      <a href="dashboard.html">Dashboard</a>
-      <a href="all_users_static.html">Users</a>
-      <a href="settings.html">Settings</a>
-    </nav>
-  </header>
+  <p>Hello??</p>
 
   <main class="container">
     <h2>All Registered Users</h2>

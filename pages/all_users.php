@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../assets/css/all_users.css">
 </head>
 <body>
+    <?php include '../includes/navbar.php' ?>
 
     <h1>All Registered Users</h1>
 

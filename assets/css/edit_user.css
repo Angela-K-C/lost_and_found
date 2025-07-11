@@ -55,7 +55,7 @@ body {
 }
 
 .save-btn {
-  background-color: #28a745;
+  background-color: #6f46e8;
   color: white;
   border: none;
   padding: 10px 16px;
@@ -74,7 +74,7 @@ body {
 }
 
 .save-btn:hover {
-  background-color: #218838;
+  background-color: #6f46e8;
 }
 
 .cancel-btn:hover {
