@@ -51,7 +51,7 @@ $user = $result->fetch_assoc();
                     <img src="../assets/images/editing icon.png" width="15" height="15">
                     <span class="icon-text">Edit Profile Picture</span>
                 </div>
-                 <form action="logout.php" method="POST">
+                 <form action="log_out.php" method="POST">
                     <input class="yah" type="submit" value="Log Out">
                  </form>
         
