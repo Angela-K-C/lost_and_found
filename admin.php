@@ -6,7 +6,7 @@
         $newStatus = $_POST['new_status'];
 
         $stmt = $conn->prepare("UPDATE users SET status = ? WHERE user_id = ?");
-        $stmt->bind_param("si", $newStatus, $userId);
+        $stmt->bind_param("ss", $newStatus, $userId); // Both are strings
 
         if ($stmt->execute()) {
             header("Location: " . $_SERVER['PHP_SELF']); // refresh page
@@ -20,12 +20,12 @@
 
         //Delete related inquiries
         $stmt1 = $conn->prepare("DELETE FROM inquiries WHERE user_id = ?");
-        $stmt1->bind_param("i", $userId);
+        $stmt1->bind_param("s", $userId); // user_id is a string
         $stmt1->execute();
 
         // Delete user
         $stmt2 = $conn->prepare("DELETE FROM users WHERE user_id = ?");
-        $stmt2->bind_param("i", $userId);
+        $stmt2->bind_param("s", $userId); // user_id is a string
         if ($stmt2->execute()) {
             header("Location: " . $_SERVER['PHP_SELF']);
             exit();
@@ -105,8 +105,8 @@
                             <td>
                                 <form method='post' action=''>
                                     <input type='hidden' name='user_id' value='" . $row['user_id'] . "'>
-                                    <input type='hidden' name='new_status' value='" . ($row['status'] == 'enabled' ? 'disabled' : 'enabled') . "'>
-                                    <button type='submit' name='toggle_status'>" . ($row['status'] == 'enabled' ? 'Disable' : 'Enable') . "</button>
+                                    <input type='hidden' name='new_status' value='" . ($row['status'] == 'active' ? 'disabled' : 'active') . "'>
+                                    <button type='submit' name='toggle_status'>" . ($row['status'] == 'active' ? 'Disable' : 'Enable') . "</button>
                                 </form>
                             </td>
                         </tr>
