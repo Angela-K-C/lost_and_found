@@ -2,23 +2,37 @@
 require '../connection.php';
 
 $itemData = null;
+$inquiryData = null;
 
 if (isset($_GET['item_id'])) {
   $itemId = ($_GET['item_id']);
 
-  $sql = "SELECT items.*, categories.category_name 
-          FROM items 
-          JOIN categories ON items.category_id = categories.category_id
-          WHERE item_id = '$itemId'";
+  // Get item data
+  $sqlItem = "SELECT items.*, categories.category_name 
+              FROM items 
+              JOIN categories ON items.category_id = categories.category_id
+              WHERE item_id = '$itemId'";
 
-  $result = $conn->query($sql);
+  $resultItem = $conn->query($sqlItem);
 
-  if ($result && $result->num_rows > 0) {
-    $itemData = $result->fetch_assoc();
+  if ($resultItem && $resultItem->num_rows > 0) {
+    $itemData = $resultItem->fetch_assoc();
   } else {
     echo "<p>Item not found.</p>";
     exit;
   }
+
+  // Get latest inquiry for that item 
+  $sqlInq = "SELECT * FROM inquiries WHERE item_id = '$itemId' ORDER BY inq_date DESC LIMIT 1";
+  $resultInq = $conn->query($sqlInq);
+
+  if ($resultInq && $resultInq->num_rows > 0) {
+    $inquiryData = $resultInq->fetch_assoc();
+  } else {
+    echo "<p>No inquiry found for this item.</p>";
+    exit;
+  }
+
 } else {
   echo "<p>No item ID provided.</p>";
   exit;
@@ -29,44 +43,34 @@ if (isset($_GET['item_id'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Inquiry and Request</title>
-  <link rel="stylesheet" href="../assets/css/inquiries_and_requests.css?v=2" />
+  <title>Review Inquiry</title>
+  <link rel="stylesheet" href="../assets/css/admin_inquiries_and_requests.css" />
 </head>
 <body>
 
   <?php include '../includes/navbar.php'; ?>
 
-  <form action="../approval.php" method="POST">
-
   <main>
-    <h2>Inquiry and Request</h2>
-    <form action="../approval" method = "POST"></form>
+    <h2>Review Inquiry Request</h2>
     <div class="container">
       
       <!-- Left Side -->
       <div class="left">
         <img src="../<?php echo htmlspecialchars($itemData['image_url']); ?>" alt="Item Image" class="item-img" />
 
-        <!-- Does this item belong to you? -->
+        <!-- Card: Inquiry submitted by user -->
         <div class="card purple-box">
-          <p><strong>📄 Does this item belong to you?</strong></p>
-          <p>Please provide a detailed description to help us verify ownership.</p>
+          <p><strong>📄 Inquiry Submitted:</strong></p>
+          <p><?php echo nl2br(htmlspecialchars($inquiryData['inq_description'])); ?></p>
         </div>
 
-        <form method="POST" action="../inquiries_and_requests_post.php">
+        <!-- Admin Action Form -->
+        <form method="POST" action="../inquiry_decision.php">
+          <input type="hidden" name="inq_id" value="<?php echo $inquiryData['inq_id']; ?>" />
           <input type="hidden" name="item_id" value="<?php echo $itemData['item_id']; ?>" />
-
-          <label for="user_description"><strong>Describe Your Item *</strong></label>
-          <textarea 
-            name="user_description" 
-            id="user_description" 
-            placeholder="Please provide specific details about your item (color, brand, distinguishing features, where you lost it, etc.)"
-            required
-          ></textarea>
-
           <div class="buttons">
-            <button type="reset" class="cancel-btn"> Reset</button>
-            <button type="submit" class="submit-btn"> Submit Inquiry</button>
+            <button type="submit" name="action" value="reject" class="cancel-btn">Reject</button>
+            <button type="submit" name="action" value="approve" class="submit-btn">Approve</button>
           </div>
         </form>
       </div>
@@ -82,15 +86,14 @@ if (isset($_GET['item_id'])) {
         <div class="card blue-box">
           <p><strong>💡 What happens next?</strong></p>
           <ul>
-            <li>Your inquiry will be reviewed by our team</li>
-            <li>If details match, you'll be contacted for verification</li>
-            <li>Arrange pickup once ownership is confirmed</li>
+            <li>Review the user's inquiry description</li>
+            <li>Approve if the description matches the item</li>
+            <li>Reject if the details don’t match</li>
           </ul>
         </div>
       </div>
       
     </div>
   </main>
-  </form>
 </body>
 </html>

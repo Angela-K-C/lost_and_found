@@ -1,5 +1,20 @@
 <?php
 session_start();
+require '../connection.php';
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$user_id = $_SESSION['user_id'];
+
+$sql = "SELECT * FROM users WHERE user_id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("s", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +51,15 @@ session_start();
                     <img src="../assets/images/editing icon.png" width="15" height="15">
                     <span class="icon-text">Edit Profile Picture</span>
                 </div>
-
-                <input class="yah" type="submit" value="Log Out">
+                 <form action="logout.php" method="POST">
+                    <input class="yah" type="submit" value="Log Out">
+                 </form>
         
             </div>
 
             <div class="form-container">
+                 <form method="POST" action="process_profile.php" enctype="multipart/form-data">
                 <p class="section-title">Personal details</p>
-
-                <label for="iud">ID</label>
-                <input type="text" id="uid" class="lbl" name="uid" placeholder="123456" required>
 
                 <label for="uname">Username</label>
                 <input type="text" id="uname" name="uname" class="lbl" placeholder="John Doe" required>
@@ -57,7 +71,7 @@ session_start();
                 <input type="password" id="pword" name="pword" class="lbl" placeholder="************" required>
             
                 <div id="submit-container">
-                    <input class="yoh" type="submit" value="Cancel">
+                     <a href="dashboard.php"><input class="yoh" type="submit" value="Cancel">
                     <input class="yah" type="submit" value="Save Changes">
                 </div>
             </div>

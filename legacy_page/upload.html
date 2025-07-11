@@ -4,32 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Form</title>
-    <link rel="stylesheet" href="../assets/css/upload.css?v=2">
-
-
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/upload.css">
+    <link rel="stylesheet" href="../assets/css/navstyles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar goes here -->
-    <?php include '../includes/navbar.php' ?>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo-sec">
+        <img src="/assets/images/ellipse 3.png" alt="Logo" />
+        <h1>LI-FI</h1>
+      </div>
+
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="profile">
+        <img src="assets/images/Ellipse 1.png" alt="Profile" />
+      </div>
+    </nav>
 
     <div class="upload-container">
         <h1>Posts upload</h1>
 
-        <form action="../upload_post.php" method="post" class="upload-form" enctype="multipart/form-data">
+        <form action="" method="post" class="upload-form">
 
             <div class="main-panel">
                 <!-- File Upload Area -->
                 <div class="upload-area">
-                    <label for="imageUrl">
-                        <img id="preview" src="../assets/images/add_photo.png" />
+                    <label for="profilePic">
+                        <img src="/assets/images/add_photo.png" />
                         <p>Upload your cover picture here</p>
                         <p><small>File formats: PDF, JPG or PNG</small></p>
                         <small>Max 5MB</small>
 
-                        <input type="file" name="imageUrl" id="imageUrl" accept="image/*" required onchange="previewImage(event)">
+                        <input type="file" name="profilePic" id="profilePic">
                     </label>
                 </div>
 
@@ -50,24 +65,17 @@
 
                     <label for="category">
                         Category:
-                        <select name="category" id="category" class="labels" required>
-                            
-                            <?php 
-                                require '../connection.php';
-
-                                $sql = "SELECT category_id, category_name from categories";
-
-                                $result = $conn->query($sql);
-
-                                while ($row = $result->fetch_assoc()) {
-                                    echo "<option value='" . $row['category_id'] . "'>" . $row['category_name'] . "</option>";
-                                }
-                            ?>
-
-                        </select>
+                        <input
+                        class="labels"
+                        type="text"
+                        id="category"
+                        name="category"
+                        placeholder="Accessories"
+                        required
+                        />
                     </label>
 
-                    <label for="location">
+                    <label for="name">
                         Location:
                         <input
                         class="labels"
@@ -95,25 +103,10 @@
             </div>
 
             <div class="buttons">
-                <button type="button" class="cancel" onclick="cancel()">Cancel</button>
+                <button type="button" class="cancel">Cancel</button>
                 <button type="submit" class="submit">Upload</button>
             </div>
         </form>
     </div>
-
-    <script>
-        function previewImage(event) {
-            const reader = new FileReader();
-            reader.onload = function() {
-                const preview = document.getElementById('preview');
-                preview.src = reader.result;
-            }
-            reader.readAsDataURL(event.target.files[0]);
-        }
-
-        const cancel = () => {
-            window.location.href = '../pages/dashboard.php';
-        }
-    </script>
 </body>
 </html>
