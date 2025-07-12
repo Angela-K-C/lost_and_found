@@ -98,3 +98,7 @@ Then visit `http://localhost:8000/index.php` in your browser.
 - **Maina Robert Ndung'u** 
 - **Ochieng Wendy Wendo**  
 - **Munene Michelle Gakenyi**
+
+- Screenshots
+- <img width="1859" height="853" alt="image" src="https://github.com/user-attachments/assets/4349d744-6b93-4724-8a3e-fc699cea33cc" />
+
