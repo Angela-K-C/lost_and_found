@@ -1,3 +1,6 @@
+**Loom Video Link**
+https://www.loom.com/share/01acb40e5c5c4fce987dbf7a215cf356?sid=a4e8c7a5-c553-43da-8a6a-966f810143c9
+
 # 🧭 Lost and Found Campus Portal
 
 A campus-oriented lost and found web application that helps students and staff report and find lost belongings, reducing physical office traffic and increasing item recovery rates.
